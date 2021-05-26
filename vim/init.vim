@@ -139,6 +139,18 @@ require('nvim-web-devicons').setup {
     }
   }
 }
+
+require('nvim-treesitter.configs').setup {
+  ensure_installed = "maintained",
+  highlight = {
+    enable = true,
+    disable = {},
+    indent = {
+      enable = true
+    },
+  },
+}
+
 EOF
 
 :imap ;; <esc>
@@ -153,8 +165,10 @@ nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi 
 inoremap <A-k> <Esc>:m .-2<CR>==gi 
 
+" Telescope mappings
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr><esc>
 
 " Make emmet expanding work with tab, but keep the tabs
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
